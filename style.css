@@ -10,6 +10,8 @@
   --color-primary: hsl(257, 40%, 49%);
   --color-secondary: hsl(300, 69%, 71%);
 
+  --fs-heading: clamp(2.3rem, 0.5rem + 2vw, 4rem);
+  --fs-texting: clamp(1.5rem, 0.1rem + 1vw, 1.8rem);
   font-size: 62.5%;
 }
 
@@ -29,8 +31,7 @@ body{
   background-color: var(--color-primary);
   font-family: var(--ff-texting);
   color: #fff;
-  font-size: 1.5rem;
-  
+  font-size: var(--fs-texting);
 }
 
 .page{
@@ -52,18 +53,20 @@ header{
 }
 
 main{
+  padding: 0 4.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 2rem;
 
   text-align: center;
 
-  width: 28rem;
+  width: 100%;
+  max-width: 50rem;
 }
 main h2{
   font-family: var(--ff-heading);
-  font-size: 2.3rem;
+  font-size:var(--fs-heading);
   font-weight: 600;
 }
 main p{
@@ -85,18 +88,86 @@ button:hover{
   transform: scale(1.1);
 }
 .social-media{
+  margin-top: 2rem;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  
-}
-.social-media div a{
- 
-
+  gap: 1rem;
 }
 .social-media div a img{
-  width: 3rem;
+  padding: 0.5rem;
+  width: 3.5rem;
   border: 1px solid #000;
   border-radius: 4rem;
-  
+  filter: invert();
 }
+.social-media div a img:hover{
+  opacity: 0.5;
+}
+
+footer{
+  margin-top: 2rem;
+}
+footer .attribution a{
+  color: #fff;
+}
+footer .attribution a:visited{
+  color: var(--color-secondary);
+}
+
+@media(min-width:640px){
+  body::before{
+    
+    background-image: url(./images/bg-desktop.svg);
+    background-size:cover;
+  }
+}
+
+@media(min-width:1200px){
+ 
+  
+  main{
+    padding: 0;
+    text-align: left;
+    
+  }
+  main h2{
+    width: 44rem;
+  }
+  .page{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+  
+
+  header{
+    margin: 0;
+    width: 100%;
+  
+  }
+  .logo img{
+    width: 100%;
+  }
+  .logo{
+    max-width: 20rem;
+    margin-bottom: 1rem;
+  }
+  .img-head img{
+    width:100%;
+  }
+  .img-head{
+   width: 75rem;
+  }
+  footer{
+    position: absolute;
+    top: 70rem;
+    right: 20rem;
+  }
+}
+
